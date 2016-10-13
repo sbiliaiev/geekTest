@@ -1,6 +1,8 @@
-# angular-gulp-scratch
-Blank AngularJS app, based on Gulp streaming build system.
-
+# Junior developer Vacancy test Solution
+Based on my own [blank-app](https://github.com/sbiliaiev/angular-gulp-scratch), as a backend used [Backendless](http://backendless.com/). Consists of 4 modules (+UI-Router), 1 factory, 1 directive.
+To pass through login form you need a valid login/password. Just type "**geektest**" in both fields.
+If the login/password will not match with the correct ones you will get an error, achieved by Angular Validation.
+ 
 ### Requirements
 You need to have [Node.js](https://nodejs.org/) installed on your machine.
 Also you need [bower](https://bower.io/) and and [Gulp](http://gulpjs.com/), to install it type in terminal:
@@ -9,37 +11,18 @@ $ sudo npm install -g bower gulp-cli
 ```
 ### Installation
 ```
-$ git clone https://github.com/sbiliaiev/angular-gulp-scratch.git
-$ cd angular-gulp-scratch
+$ git clone https://github.com/sbiliaiev/geekTest.git
+$ cd geekTest
 $ npm install
 ```
 It will install all the needed packages and vendor scripts/styles.
 
-### Tasks
-#### Development
-- clean-dev - delete development directory
-- build-vendor-scripts-dev - prepare vendor scripts for development 
-- build-app-scripts-dev - prepare application scripts for development
-- build-vendor-styles-dev - prepare vendor styles for development
-- build-app-styles-dev - prepare application styles for development
-- build-index-dev - prepare index.html file by injecting all dependencies above
-- build-partials-dev - prepare templates html files for development
-- build-images-dev - prepare images for development
-- build-dev - build application for development
-- watch-dev - run watcher to track and rebuild certain part of application
-- serve-dev - run livereload server
-- dev - rebuild application for development, run watcher and server
+### Running
+You can build 2 versions of app:
+- for Development type in terminal `gulp build-dev`
+- for Production type in terminal `gulp build-prod`
 
-#### Production
-- clean-prod - delete production directory
-- build-vendor-scripts-prod - prepare vendor scripts for production 
-- build-app-scripts-prod - prepare application scripts for production
-- build-vendor-styles-prod - prepare vendor styles for production
-- build-app-styles-prod - prepare application styles for production
-- build-index-prod - prepare index.html file by injecting all dependencies above
-- build-partials-prod - prepare templates html files for production
-- build-images-prod - prepare images for production
-- build-prod - build application for production
-- watch-prod - run watcher to track and rebuild certain part of application
-- serve-prod - run livereload server
-- prod - rebuild application for production, run watcher and server
+To run it on a server type `gulp serve-dev` for development version and `gulp serve-prod` for production version resp. Application will be available on [http://localhost:3000/#/hello](http://localhost:3000/#/hello)
+
+### Tasks
+For a complete list of available tasks take a look at [this page](https://github.com/sbiliaiev/angular-gulp-scratch/blob/master/README.md).
