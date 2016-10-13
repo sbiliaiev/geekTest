@@ -1,39 +1,22 @@
 var login  = angular.module('login', []);
 
-login.controller('LoginController', ['$scope', function($scope) {
+login.controller('LoginController', ['$scope', 'userService', function($scope, userService) {
 	console.log('its login controller');
-		$scope.user = {};
-		$scope.processing = false;
-		$scope.succesLogin = false;
-		var userLoggedIn = function() {
-			setTimeout(function() {
-				console.log('SUCCESS');
-				$scope.succesLogin = true;
-				$scope.$apply();
-			}, 2000);
-		};
-		var gotError = function(err) {
-			setTimeout(function() {
-				console.log( "error message - " + err.message );
-	        	console.log( "error code - " + err.statusCode );
-	        	$scope.loginForm.login.$setValidity("badData", false);
-	        	$scope.loginForm.password.$setValidity("badData", false);
-	        	$scope.processing = false;
-				$scope.user = null;
-	        	$scope.$apply();	
-			}, 2000);	
-		};
-		$scope.loginMe = function() {
-			var username = $scope.user.login,
-				password = $scope.user.password,
-				remember = false;
-			$scope.processing = true;
-			Backendless.UserService.login(username, password, remember, new Backendless.Async(userLoggedIn, gotError));
-		};
+	$scope.userService = userService;
 }]);
 
 login.directive('loginDirective', function() {
 	return {
-		templateUrl: './components/loginDirective/loginDirective.html'
+		templateUrl: './components/loginDirective/loginDirective.html',
+		scope: true,
+		link: function(scope) {
+			scope.user = {};
+			scope.processing = false;
+			scope.succesLogin = false;
+			scope.loginMe = function() {
+				scope.processing = true;
+				scope.userService.loginFunc(scope, scope.user);
+			};
+		}
 	};
 });

@@ -9,7 +9,8 @@ var app = angular.module('app', [
     'ui.router',
     'hello',
     'app.partials',
-    'login'
+    'login',
+    'app.userservice'
 ]);
 
 app.controller('StartCtrl', ['$scope', '$state', function($scope, $state) {
